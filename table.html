@@ -1,0 +1,85 @@
+<!DOCTYPE html><!--声明html版本编写指令 H5-->
+<html>
+	<head>
+		<!--声明页面编码 utf-8 国际编码-->
+		<meta charset="UTF-8">
+		<!--网站三要素 关键字 页面描述 标题-->
+		<meta name="Keywords" content=""/>
+		<meta name="Description" content=""/>
+		<title>自定义table.js开发</title>
+		<!--JavaScript高级运用:面向对象 封装插件/框架 用别人的插件 自己要学着写插件-->
+		<!--基本的框架模型-->
+		<link rel="stylesheet" type="text/css" href=""/>
+	    <style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			} 
+			#win{
+				width: 500px;	
+				margin: 100px auto;
+				border: 1px solid #000;
+				/*边框 只能针对于边框为1px 为了统一颜色 颜色搭配*/
+	
+			}
+		</style>
+		<!--写样式的原则:尽量不要写行内样式,要么写在外联,要么写在style里面去-->
+	</head>
+	<body>
+		<div id="win"></div>
+	</body>
+	<script src="js/table.js" type="text/javascript" charset="utf-8"></script><!--引入代码-->
+	<!--jquery $暴露-->
+	<script type="text/javascript">
+		/*
+		    API接口:调用某个对象中的某个方法 从而实现一个功能
+	        new关键字,将一个在虚拟构建的东西给实体化(实例化)
+	        
+	        框架的开发 >> 需求 
+	        {   键值对  数据名称:数据值 对象:属性:属性值
+	        		name:"tanruoxin",
+	        		age:22
+	        	}:字面量对象.name 长的很像 JSON 对象:属性和行为
+	        	专业术语 对象
+	        在页面中构建一个几行几列的表格  几行几列>>用户去控制
+	        需求:
+	            1.把表格放在页面的哪个地方
+	            2.如果用户没有指定参数  那你表格就放在body
+	            3.行和列 >>用户指定的
+	            4.用户为何用你这个框架 1.懒 2.如果他自己写 不会 3.简单
+	            5.先构建表格的行 列是放在行内的 用浮动可以将一列在水平上
+	            6.如果用户用的是link链接样式列表,那么style就获取不到
+		 */
+		//用户 开发 框架开发
+		//让用户更简单的执行
+//		var vue=new vue(); 接口暴露 vue框架 实例化
+	    var win=document.getElementById('win');
+		var table=new Table(win);//把这个表格对象创建出来 win是实参
+		table.createTable({
+			//row是行 col是列
+			col:3,//列
+			row:3//行		
+			//任意生成表格
+			//根据用户的参数来自动构建函数(循环构建)
+		});//执行原型里面定义的创建表格方法(调用方法) 
+		//键 值 一对一对的
+	</script>
+</html>
+<!--遵循W3C规范标准-->
+<!--完善:列的样子 列表数据 数据绑定 列表的样式 视图 边框 文字,全部都可以继续扩展-->
+<!--事件冒泡 事件捕获 默认事件 键盘事件  鼠标事件
+	对JS的认识:轮播,特效,交互效果,动画,脚本语言
+	做效果,写特效,操作页面,网页,交互,对DOM进行操作
+	HTML+CSS+JavaScript
+	封装  框架开发->封装框架 专门研究框架开发
+	好处
+	1.钱
+	专门研究框架开发
+	框架:
+	1.UI框架视图,jquery,React,jquery mobile
+	2.数据交互框架 NodeJS,Vue.js
+	插件:框架 实现了功能
+	html是结构层,css是表现层,js是逻辑层
+	数据传输
+	页面交互和数据交互	
+-->
